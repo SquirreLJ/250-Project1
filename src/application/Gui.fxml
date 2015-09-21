@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane fx:id="canvas" dividerPositions="0.28983516483516486" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TextField fx:id="ItemText" layoutX="-3.0" layoutY="419.0" prefHeight="31.0" prefWidth="205.0" promptText="New Item" />
+            <TextField alignment="BASELINE_CENTER" editable="false" layoutX="-3.0" prefHeight="31.0" prefWidth="205.0" text="Inventory" />
+            <TableView fx:id="StockTable" layoutY="30.0" prefHeight="308.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="stockNameCol" prefWidth="100.0" resizable="false" text="Item" />
+                <TableColumn fx:id="stockQuantCol" prefWidth="100.0" text="Quantity" />
+              </columns>
+            </TableView>
+            <Button layoutY="338.0" mnemonicParsing="false" onAction="#BorrowItem" prefWidth="200.0" text="Borrow Item" />
+            <Button layoutY="379.0" mnemonicParsing="false" onAction="#Add" prefWidth="100.0" text="Add" />
+            <Button layoutX="100.0" layoutY="379.0" mnemonicParsing="false" onAction="#Subtract" prefWidth="100.0" text="Subtract" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="100.0">
+         <children>
+            <TextField alignment="BASELINE_CENTER" editable="false" layoutX="-2.0" layoutY="-1.0" prefHeight="31.0" prefWidth="505.0" text="Borrowed Items" />
+            <TableView fx:id="BorrowedTable" layoutX="-2.0" layoutY="30.0" prefHeight="308.0" prefWidth="500.0">
+              <columns>
+                <TableColumn fx:id="borrowedNameCol" prefWidth="100.0" resizable="false" text="Item" />
+                <TableColumn fx:id="borrowerCol" prefWidth="100.0" text="Borrower" />
+                  <TableColumn fx:id="borrowedDateCol" prefWidth="100.0" text="Due Date" />
+                  <TableColumn fx:id="borrowedQuantCol" prefWidth="100.0" text="Quantity" />
+                  <TableColumn fx:id="borrowedStatusCol" prefWidth="100.0" text="Status" />
+              </columns>
+            </TableView>
+            <Button layoutX="-2.0" layoutY="338.0" mnemonicParsing="false" onAction="#ReturnItem" prefWidth="133.0" text="Return Item" />
+            <Button layoutX="132.0" layoutY="338.0" mnemonicParsing="false" onAction="#DeleteItem" prefWidth="133.0" text="Delete Item" />
+            <DatePicker fx:id="DueDate" layoutX="194.0" layoutY="388.0" onAction="#SetDate" />
+            <DatePicker fx:id="CurrentDate" layoutX="194.0" layoutY="419.0" onAction="#CheckDate" />
+            <TextField alignment="CENTER" editable="false" layoutX="-2.0" layoutY="388.0" text="Due Date:" />
+            <TextField alignment="CENTER" editable="false" layoutX="-2.0" layoutY="419.0" text="Current Date:" />
+            <TextField fx:id="BorrowerText" layoutX="265.0" layoutY="338.0" prefWidth="235.0" promptText="Borrower" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
